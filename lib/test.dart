@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:validate/validate.dart';
 class test_data{
   String _field1;
   String _field2;
@@ -56,11 +57,29 @@ class _testState extends State<test> {
               onSaved: (String value){
                 data._field1=value;
               },
+                validator:(String value){
+                  try{
+                    Validate.notEmpty(value);
+
+                  }catch(e){
+                    return "Enter a value";
+                  }
+                  return null;
+                },
               ),
               new SizedBox(height: 5.0,),
               new TextFormField(decoration: new InputDecoration(labelText: "Test2"),
                 onSaved: (String value){
                   data._field2=value;
+                },
+                validator:(String value){
+                    try{
+                      Validate.notEmpty(value);
+
+                    }catch(e){
+                      return "Enter a value";
+                    }
+                    return null;
                 },
               ),
               new SizedBox(height: 5.0,),
@@ -68,11 +87,29 @@ class _testState extends State<test> {
                 onSaved: (String value){
                   data._field3=value;
                 },
+                validator:(String value){
+                  try{
+                    Validate.notEmpty(value);
+
+                  }catch(e){
+                    return "Enter a value";
+                  }
+                  return null;
+                },
               ),
               new SizedBox(height: 5.0,),
               new TextFormField(decoration: new InputDecoration(labelText: "Test4"),
                 onSaved: (String value){
                   data._field4=value;
+                },
+                validator:(String value){
+                  try{
+                    Validate.notEmpty(value);
+
+                  }catch(e){
+                    return "Enter a value";
+                  }
+                  return null;
                 },
               ),
               new FloatingActionButton(child: new Text("submit"),onPressed: (){
